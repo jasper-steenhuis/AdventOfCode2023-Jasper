@@ -2,9 +2,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 
 class DayOne{
+    public static String[] wordsArray = {"one", "two", "three", "four", "five", "six", "seven", " eight", "nine", "ten"};
     public static void main(String[] args) {  
         try {
             File inputFile = new File("C:\\Users\\Gebruiker\\Documents\\projecten\\AdventOfCode2023-Jasper\\InputFiles\\dayOne");
@@ -32,7 +34,7 @@ class DayOne{
                     System.out.println(finalStr);
     
             }
-            System.out.println("TOTAL: " + total);
+            //System.out.println("TOTAL: " + total);
         }
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
@@ -41,8 +43,11 @@ class DayOne{
         
     }  
     public static String[] extractNumbersFromStrings(String str){
+            Pattern pattern = Pattern.compile("(?:one|two|three|four|five|six|seven|eight|nine|ten)"); 
+
            return str.replaceAll("[^0-9]","").split("\\D+");        
     }
+
 
 
     
