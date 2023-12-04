@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
@@ -43,7 +44,9 @@ class DayOne{
         
     }  
     public static String[] extractNumbersFromStrings(String str){
-            Pattern pattern = Pattern.compile("(?:one|two|three|four|five|six|seven|eight|nine|ten)"); 
+            Pattern pattern = Pattern.compile("(?:one|two|three|four|five|six)"); 
+            Matcher matcher = pattern.matcher(str);  
+            System.out.println(matcher.find() + " " + matcher.results());
 
            return str.replaceAll("[^0-9]","").split("\\D+");        
     }
